@@ -1,0 +1,19 @@
+{
+  "name": "font-compiler",
+  "version": "0.0.1",
+  "description": "Service to generate icon webfonts powered by fontcustom",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drudv/font-compiler.git"
+  },
+  "author": "Dmitry Druganov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/drudv/font-compiler/issues"
+  },
+  "homepage": "https://github.com/drudv/font-compiler#readme"
+}
