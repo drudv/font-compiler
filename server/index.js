@@ -1,5 +1,23 @@
 import winston from 'winston';
-import FontCompilerServer from './FontCompilerServer';
+import FontCompilerServer, { DEFAULT_HOST, DEFAULT_PORT } from './FontCompilerServer';
+import yargs from 'yargs';
+
+yargs
+  .usage('Generate icon webfonts using remote icon-compiler service\nUsage: $0')
+  .options({
+    'port': {
+      describe: `port on which the server listens for connections (default ${DEFAULT_PORT})`,
+      type: 'number'
+    },
+    'host': {
+      describe: `host on which the server listens for connections (default ${DEFAULT_HOST})`,
+      type: 'string'
+    }
+  })
+  .help('h')
+  .alias('h', 'help')
+
+const argv = yargs.argv;
 
 const logger = new winston.Logger({
   level: 'info',
@@ -9,6 +27,8 @@ const logger = new winston.Logger({
 });
 
 const app = new FontCompilerServer({
+  host: argv.host,
+  port: argv.port,
   logger
 });
 app.run();
