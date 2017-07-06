@@ -4,7 +4,9 @@
   "description": "Service to generate icon webfonts powered by fontcustom",
   "main": "server/index.js",
   "scripts": {
-    "start": "node ./bin/font-compiler",
+    "start": "npm run server",
+    "server": "node ./bin/font-compiler",
+    "client": "node ./bin/font-compiler-client",
     "build-server": "mkdir -p build/server && babel server --out-dir build/server",
     "build-client": "mkdir -p build/client && babel client --out-dir build/client",
     "build": "npm run build-server && npm run build-client",
