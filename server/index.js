@@ -11,3 +11,4 @@ const logger = new winston.Logger({
 const app = new FontCompilerServer({
   logger
 });
+app.run();
