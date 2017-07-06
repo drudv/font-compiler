@@ -3,7 +3,7 @@ import FontCompilerServer, { DEFAULT_HOST, DEFAULT_PORT } from './FontCompilerSe
 import yargs from 'yargs';
 
 yargs
-  .usage('Generate icon webfonts using remote icon-compiler service\nUsage: $0')
+  .usage('Service to generate icon webfonts\nUsage: $0 [OPTIONS]')
   .options({
     'port': {
       describe: `port on which the server listens for connections (default ${DEFAULT_PORT})`,
