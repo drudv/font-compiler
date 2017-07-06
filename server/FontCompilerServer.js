@@ -24,7 +24,7 @@ export default class FontCompilerServer {
   /** Run server */
   run() {
     const { host, port } = this._config;
-    this._webServer.listen(host, port, () => {
+    this._webServer.listen(port, host, () => {
       this._logger.info(`font-compiler server started on port ${port} at ${host}`);
     });
   }
