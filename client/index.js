@@ -1,14 +1,20 @@
-import fs from 'fs';
 import yargs from 'yargs';
 import { DEFAULT_PORT } from '../server/FontCompilerServer';
 
 const HOST_PORT_REGEXP = '^([a-zA-Z0-9-\.]+)?(\:[0-9]+)?$';
 
+const USAGE = `
+Generate icon webfonts using remote font-compiler service
+USAGE: $0 [COMMAND] [OPTIONS]
+`;
+
 yargs
-  .usage('Generate icon webfonts using remote font-compiler service\nUsage: $0 [OPTIONS]')
+  .usage(USAGE)
+  .command(['compile', '*'], 'Generates webfonts and templates')
+  .command('config', 'Generates a starter configuration file (fontcustom.yml)')
   .options({
     'server': {
-      describe: `host and port of font-compiler server (default: 127.0.0.1:${DEFAULT_PORT})`,
+      describe: `host and port of font-compiler server`,
       default: `127.0.0.1:${DEFAULT_PORT}`,
       coerce: value => {
         const matches = value.match(HOST_PORT_REGEXP);
@@ -23,10 +29,9 @@ yargs
       }
     },
     'dir': {
-      describe: `directory where fontcustom.yml and SVG files are located (default: current directory)`,
+      describe: `directory where fontcustom.yml and SVG files are located`,
       default: '.'
     }
   })
   .help('h')
-  .alias('h', 'help')
-
+  .alias('h', 'help');
