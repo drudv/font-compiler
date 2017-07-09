@@ -1,4 +1,7 @@
 {
+  "globals": {
+    "__dirname": false
+  },
   "parser": "babel-eslint",
   "extends": "eslint:recommended"
 }
