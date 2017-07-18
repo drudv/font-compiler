@@ -1,3 +1,4 @@
+import path from 'path';
 import yargs from 'yargs';
 import { DEFAULT_PORT } from '../server/FontCompilerServer';
 
@@ -10,8 +11,7 @@ USAGE: $0 [COMMAND] [OPTIONS]
 
 yargs
   .usage(USAGE)
-  .command(['compile', '*'], 'Generates webfonts and templates')
-  .command('config', 'Generates a starter configuration file (fontcustom.yml)')
+  .commandDir(path.join(__dirname, 'commands'))
   .options({
     'server': {
       describe: `host and port of font-compiler server`,
@@ -33,5 +33,6 @@ yargs
       default: '.'
     }
   })
+  .demandCommand()
   .help('h')
   .alias('h', 'help');
