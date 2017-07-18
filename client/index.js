@@ -36,3 +36,18 @@ yargs
   .demandCommand()
   .help('h')
   .alias('h', 'help');
+
+const commands = yargs.getCommandInstance().getCommands();
+const command = yargs.argv._[0];
+
+if (!command) {
+  console.error('Mandatory command is not provided');
+  yargs.showHelp();
+  process.exit(1);
+}
+
+if (!commands.includes(command)) {
+  console.error(`Not a valid command: ${command}`);
+  yargs.showHelp();
+  process.exit(1);
+}
